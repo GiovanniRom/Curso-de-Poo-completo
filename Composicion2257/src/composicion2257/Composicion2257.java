@@ -5,6 +5,8 @@
  */
 package composicion2257;
 
+import ico.fes.cuartos.Cuarto;
+import ico.fes.objetos.Mesa;
 import ico.fes.objetos.Puerta;
 import ico.fes.objetos.PuertaDeSeguridad;
 import ico.fes.objetos.Ventana;
@@ -40,6 +42,17 @@ public class Composicion2257 {
         
         Muro muroSur = new Muro(5.0f, 4.5f, 2.5f, Color.blue, new Puerta("Aluminio", Color.white, false), null);
         
+        //Ejemplo de habitacion aka tarea moral
+        Cuarto habitacion1 = new Cuarto();
+        habitacion1.setMesita(new Mesa("madera y metal", 1.3f));
+        habitacion1.setMuroNorte(new Muro(2.0f, 2.0f, 2.0f, Color.white, new Puerta("madera", Color.white, false), tmpVentanas));
+        habitacion1.setMuroSur(new Muro(2.0f, 2.0f, 2.0f, Color.white, null, tmpVentanas));
+        habitacion1.setMuroEste(new Muro(2.0f, 2.0f, 2.0f, Color.white, null, tmpVentanas));
+        habitacion1.setMuroOeste(new Muro(2.0f, 2.0f, 2.0f, Color.white, null, tmpVentanas));
+        
+        System.out.println("*****Implementacion de tarea moral de habitacion*****");
+        System.out.println(habitacion1);
+        
         System.out.println("*****Ejemplos de herencia*****");
         PuertaDeSeguridad puer1 = new PuertaDeSeguridad();
         puer1.abrir();
@@ -49,6 +62,15 @@ public class Composicion2257 {
         
         PuertaDeSeguridad puer2 = new PuertaDeSeguridad("Chapa electronica", "1234dios", "metal", Color.gray, false);
         System.out.println(puer2.toString());
+        
+        
+        System.out.println("**********Refundido***********");
+        
+        Puerta nueva = (Puerta)puer2;
+        System.out.println(nueva);
+        puer2.abrir();
+        System.out.println("*****Lamado al metodo de la clase bsae");
+        ((Puerta)puer2).abrir(); //algo cambio en el llamdo a los metodos despues de hacer un refundido
     }
     
 }
