@@ -18,19 +18,19 @@ public class Listadoble {
         inicio=null;
         fin=null;
     }
-  /*  public void Agregarinicio(int dato){
+   public void Agregarinicio(int dato){
         if(inicio==null&&fin==null){
-            fin = new Nodo(dato, fin);
+            fin = new Nodo(dato, fin,inicio);
             inicio=fin;
         }
         else{
             Nodo aux=fin;
-            fin = new Nodo(dato, fin);
+            fin = new Nodo(dato, fin,aux);
             aux.sig=fin;
             aux=fin;           
         }
         i++;
-    }*/
+    }
     public void Mostrarlista(){
         Nodo aux = inicio;
        for(int c=0;c<i;c++){
@@ -45,7 +45,7 @@ public class Listadoble {
          Nodo aux = inicio;
          Nodo auxant=inicio;   
      int o=i;
-       for(int c=0;c<o;c++){//aqui i se retrolaimento con c
+       for(int c=0;c<o;c++){
           if(aux.dato==ele){
               if(aux==inicio){
                   inicio=inicio.sig;
@@ -75,11 +75,13 @@ public class Listadoble {
          Scanner myObjp1 = new Scanner(System.in);
          int dato = myObjp1.nextInt();
         Nodo aux1= inicio;
+        Nodo aux2=aux1.sig;
         Nodo auxant1= aux1;
         for(int j=0;i<=indice;i++){
             if(j==indice){
-              auxant1 = new Nodo(dato, aux1); 
+              auxant1 = new Nodo(dato, aux1,aux2); 
              }
+        aux2=aux1;
         aux1 =aux1.sig;
         j++;
     }

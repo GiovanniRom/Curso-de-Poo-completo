@@ -74,14 +74,14 @@ public class Lista {
          System.out.println("Que dato desea insertar?\n");
          Scanner myObjp1 = new Scanner(System.in);
          int dato = myObjp1.nextInt();
-        Nodo aux1= inicio;
-        Nodo auxant1= aux1;
-        for(int j=0;i<=indice;i++){
+        Nodo aux2= inicio;
+        Nodo auxant2= aux2;
+        for(int j=0;j<=indice+1;j++){
             if(j==indice){
-              auxant1 = new Nodo(dato, aux1); 
+              auxant2.sig = new Nodo(dato, aux2); 
              }
-        aux1 =aux1.sig;
-        j++;
+            auxant2=aux2;
+        aux2 =aux2.sig;
     }
     }
 }
