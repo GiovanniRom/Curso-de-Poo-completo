@@ -16,8 +16,10 @@ public class MetodosDeIteracion {
      * @param args the command line arguments
      */ 
     public static void main(String[] args) {
-       int xc=0,xl=0,c=0, i=0;
+       int xc=0,xl=0,c=0; 
+       float i=0;
        PuntoFijo pf = new PuntoFijo();
+       NewtonRaphson nr = new NewtonRaphson();
         System.out.println("Introduzca el coeficiente de x^2");
         Scanner myObj = new Scanner(System.in);
         xc = myObj.nextInt();
@@ -29,10 +31,10 @@ public class MetodosDeIteracion {
         c = myObj2.nextInt();
         System.out.println("Introduzca el valor inicial de X0");
         Scanner myObj3 = new Scanner(System.in);
-        i = myObj3.nextInt();
+        i = myObj3.nextFloat();
         //metodo de punto fijo
         pf.metodopf(xc, xl, c, i);
-        
+        nr.metodoNR(xc, xl, c, i);
     }
     
 }
