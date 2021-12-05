@@ -5,54 +5,43 @@
  */
 package metodosdeiteracion;
 
+//import static java.lang.Math.sqrt;
+import com.singularsys.jep.JepException;
+import java.util.Scanner;
+
 /**
  *
  * @author cakit
  */
 public class PuntoFijo {
 
+    /**
+     *
+     */
+    public Funcion fun;
     public PuntoFijo() {
     }
     
-    public void metodopf(int xc,int xl,int c, float p){
-        float r, var,i;
-        int j;
-        if(xc==0){
-            System.out.println("Esta forma no converge\n");
+    public void setFuncion(String expresion){
+        fun = new Funcion(expresion);
+    }
+    
+    public void metodopf() throws JepException{
+        Double r;
+        System.out.println("Introduzca la funcion de ordenamiento\n");
+        Scanner myObj = new Scanner(System.in);
+        String cadena = myObj.nextLine();
+        this.setFuncion(cadena);
+         System.out.println("Introduzca el punto inicial\n");
+        Scanner myObj1 = new Scanner(System.in);
+        Double p = myObj1.nextDouble();
+        this.setFuncion(cadena);
+        for(int j=0;j<=25;j++){
+            r=this.fun.evaluar(p);
+            p=r;
         }
-        else{
-            if(xl==0){
-                var= -c/xc;       //separacion de x cuadrada en dos y simplificacion
-                i=p;
-                for(j=0;j<=25;j++){ //iteraciones de esa forma
-                    r=var*(1/i);
-                    //System.out.println("|"+i+"|"+r+"|\n");  //imprime los resultados de esa forma
-                    i=r;
-                }
-                System.out.println("La raiz por metodo de punto fijo esta en:"+i+"\n");
-            }else{
-                if(c==0){
-                //var=(-c-Axc/xl);       separacion y simplificacion de ecuacion
-                i=p;
-                for(j=0;j<=25;j++){     //iteraciones de esa forma
-                    r=((-(xc)*(i)*(i))/xl);
-                    //System.out.println("|"+i+"|"+r+"|\n");  //imprime los resultados de esa forma
-                    i=r;
-                }
-                System.out.println("La raiz por metodo de punto fijo esta en:"+i+"\n");
-                }else{
-                    //var=-c/(Axc+xl)
-                    i=p;
-                    for(j=0;j<=25;j++){
-                        r=-c/((xc*i)+xl);
-                        //System.out.println("|"+i+"|"+r+"|\n");  //imprime los resultados de esa forma
-                        i=r;
-                    }
-                    System.out.println("La raiz por metodo de punto fijo esta en:"+i+"\n");
-                }
-                
-            }
-        }
+        System.out.println("La raiz por metodo de punto fijo esta en: "+p+"\n");
+       
     }
     
 }
