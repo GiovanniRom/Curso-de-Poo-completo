@@ -54,6 +54,6 @@ public class Simpson38 {
         }
         Double w = 0.375;
         r=r*h*w;
-        System.out.println("El resultado de la integral por metodo del trapecio es: " + r +"\n");
+        System.out.println("El resultado de la integral por metodo de Simpson 3/8 es: " + r +"\n");
     }  
 }

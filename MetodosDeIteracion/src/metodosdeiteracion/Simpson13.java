@@ -60,6 +60,6 @@ public class Simpson13 {
             }
         }
         r=r*(h/3);
-        System.out.println("El resultado de la integral por metodo del trapecio es: " + r +"\n");
+        System.out.println("El resultado de la integral por metodo de Simpson 1/3 es: " + r +"\n");
     }
 }
